@@ -8,6 +8,11 @@ package ca_2_2024216.hospital;
  *
  * @author sary_
  */
-public class Manager {
+public enum Manager {
     
+    CHIEF_DOCTOR,
+    DOCTOR,
+    CHIEF_NURSE,
+    NURSE,
+    ADMINISTRATIVE
 }

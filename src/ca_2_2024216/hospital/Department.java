@@ -8,6 +8,11 @@ package ca_2_2024216.hospital;
  *
  * @author sary_
  */
-public class Department {
+public enum Department {
     
+    EMERGENCY,
+    SURGERY,
+    PEDIATRICS,
+    RADIOLOGY,
+    HR
 }
