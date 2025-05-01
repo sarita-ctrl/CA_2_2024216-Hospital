@@ -12,7 +12,8 @@ public enum Menu {
     
     SORT,
     SEARCH,
-    ADD_RECORDS,
+    ADD_RECORD,
+    GENERATE_RANDOM,
     EXIT
     
 }
