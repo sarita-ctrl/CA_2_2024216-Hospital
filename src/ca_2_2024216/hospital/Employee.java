@@ -32,8 +32,12 @@ public class Employee {
         return department;
     }
 
-    @Override
+    public int compareTo(Employee other) {
+        return this.name.compareToIgnoreCase(other.name);
+    }
+    
+     @Override
     public String toString() {
-        return name + " - " + manager + " - " + department;
+        return name + " (" + manager + ", " + department + ")";
     }
 }
