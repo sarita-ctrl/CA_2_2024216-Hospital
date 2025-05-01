@@ -14,5 +14,5 @@ public enum Department {
     SURGERY,
     PEDIATRICS,
     RADIOLOGY,
-    HR
+    ADMINISTRATION
 }
