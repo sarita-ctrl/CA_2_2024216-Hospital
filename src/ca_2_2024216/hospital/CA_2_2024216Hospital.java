@@ -91,8 +91,9 @@ public class CA_2_2024216Hospital {
                     break;
 
                 case EXIT:
+                    EmployeeGenerator.saveEmployeesToFile(employees, "employees.txt");
                     running = false;
-                    System.out.println("Exiting program.");
+                    System.out.println("Exiting program. Employees saved to employees.txt.");
                     break;
 
                 default:
