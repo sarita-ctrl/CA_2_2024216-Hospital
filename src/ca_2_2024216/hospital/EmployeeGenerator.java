@@ -15,6 +15,9 @@ import java.util.Set;
 import java.util.HashSet;
 import java.util.Random;
 
+import java.io.FileWriter;
+import java.io.IOException;
+
 public class EmployeeGenerator {
     
     private static final String[] FIRST_NAMES = {
@@ -52,4 +55,15 @@ public class EmployeeGenerator {
                LAST_NAMES[rand.nextInt(LAST_NAMES.length)];
     }
     
+    // Save to file
+    public static void saveEmployeesToFile(List<Employee> employees, String filename) {
+        try (FileWriter writer = new FileWriter(filename)) {
+            for (Employee emp : employees) {
+                writer.write(emp.getName() + "," + emp.getManager() + "," + emp.getDepartment() + "\n");
+            }
+            System.out.println(employees.size() + " employees saved to " + filename);
+        } catch (IOException e) {
+            System.out.println("Error saving employees: " + e.getMessage());
+        }
+    }
 }
