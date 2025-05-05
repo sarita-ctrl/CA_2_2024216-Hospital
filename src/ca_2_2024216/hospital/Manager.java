@@ -14,5 +14,5 @@ public enum Manager {
     DOCTOR,
     CHIEF_NURSE,
     NURSE,
-    ADMINISTRATIVE
+    ASSISTANT
 }

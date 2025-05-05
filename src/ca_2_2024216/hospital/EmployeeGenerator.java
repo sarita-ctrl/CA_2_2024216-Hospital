@@ -41,7 +41,7 @@ public class EmployeeGenerator {
         if (usedNames.contains(name)) continue;
         usedNames.add(name);
 
-        Department department = Department.values()[rand.nextInt(Department.values().length)];
+Department department = Department.values()[rand.nextInt(Department.values().length)];
         Manager manager = Manager.values()[rand.nextInt(Manager.values().length)];
         employees.add(new Employee(name, manager, department));
     }
