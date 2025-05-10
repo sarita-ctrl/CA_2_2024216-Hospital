@@ -40,14 +40,14 @@ public class CA_2_2024216Hospital {
 
             switch (option) {
                 case SORT:
-                    Collections.sort(employees, Comparator.comparing(Employee::getName, String.CASE_INSENSITIVE_ORDER));
+                    mergeSort(employees, 0, employees.size() - 1); //recursive merge sort
                     System.out.println("Employees sorted by name:");
                     employees.forEach(System.out::println);
                     break;
 
                 case SEARCH:
                     System.out.print("Enter name to search: ");
-                    String nameToSearch = scanner.nextLine();
+                    String nameToSearch = scanner.nextLine().trim(); //in case innecessary spaces
                     int index = binarySearch(employees, nameToSearch);
                     if (index != -1) {
                         System.out.println("Found: " + employees.get(index));
@@ -116,4 +116,46 @@ public class CA_2_2024216Hospital {
         }
         return -1;
     }
+    
+    //main and auxiliar method to sort using recursive merge
+    public static void mergeSort(List<Employee> list, int left, int right) {
+    if (left < right) {
+        int mid = (left + right) / 2;
+        mergeSort(list, left, mid);
+        mergeSort(list, mid + 1, right);
+        merge(list, left, mid, right);
+    }
+}
+
+public static void merge(List<Employee> list, int left, int mid, int right) {
+    List<Employee> temp = new ArrayList<>();
+
+    int i = left;
+    int j = mid + 1;
+
+    while (i <= mid && j <= right) {
+        if (list.get(i).getName().compareToIgnoreCase(list.get(j).getName()) <= 0) {
+            temp.add(list.get(i));
+            i++;
+        } else {
+            temp.add(list.get(j));
+            j++;
+        }
+    }
+
+    while (i <= mid) {
+        temp.add(list.get(i));
+        i++;
+    }
+
+    while (j <= right) {
+        temp.add(list.get(j));
+        j++;
+    }
+
+    for (int k = 0; k < temp.size(); k++) {
+        list.set(left + k, temp.get(k));
+    }
+}
+
 }
